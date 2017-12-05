@@ -70,7 +70,7 @@ def get_surrounding_points(point: Point) -> list:
 
 def solve():
     point_dict = {}
-    for i, point in enumerate(generate_points()):
+    for point in generate_points():
         surrounding_fill_values = [point_dict.get(point_x_y).get('fill_value') for point_x_y in get_surrounding_points(point) if point_dict.get(point_x_y)]
         fill_value = sum(surrounding_fill_values) or 1  # '1' is for the centre.
         if fill_value > 361527:

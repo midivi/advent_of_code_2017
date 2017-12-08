@@ -8,7 +8,7 @@ def solve(input):
     while True:
         next_arrangement = get_gext_arrangement(next_arrangement)
         if next_arrangement in all_seen_dict:
-            return len(all_seen_dict) + 1
+            return len(all_seen_dict) + 1, next_arrangement
         all_seen_dict[next_arrangement]
 
 
@@ -26,7 +26,9 @@ def get_gext_arrangement(input: tuple) -> tuple:
 
 if __name__ == "__main__":
     input = [2, 8, 8, 5, 4, 2, 3, 1, 5, 5, 1, 2, 15, 13, 5, 14]
-    print(solve(input))
+    _, next_input = solve(input)
+    answer, _ = solve(next_input)
+    print(answer - 1)
 
 
 @pytest.mark.parametrize('input, expected', [
